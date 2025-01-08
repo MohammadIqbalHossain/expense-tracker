@@ -1,0 +1,53 @@
+.limitForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.limits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.limits label {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.limits input {
+  flex: 2;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submitButton {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 400px) {
+  .limitForm {
+    width: 100%;
+  }
+
+  .limits {
+    flex-direction: column;
+    row-gap: 0.7rem;
+    justify-content: center;
+    align-items: start;
+    text-align: start!;
+  }
+
+  .limits input {
+    flex: fit;
+  }
+}

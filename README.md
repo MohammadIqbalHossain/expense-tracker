@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Expense Tracker app.
 
-## Getting Started
+A web applicatio for tracking daily expenses. users can enter limitations for categors (eg: Groceries, Transportaion) for each day.
+The application is build with Next.js, raw CSS, Redux Toolkit, backend: node.js express.js Database is MongoDB.
 
-First, run the development server:
+## Features
+
+### Expense Management.
+
+- Add expenses in different categories such as Groceris, Transportaion etc.
+- Date and time Recording for each expenses.
+- user can limit their expenses based on categories.
+- Managing user expenses by different userId for each user
+- Showing summary of the all expenses and and total expenses for a day.
+- User can add expenses multiple time a day.
+- User can delete a expense if wanted.
+
+### Sammary
+
+- Daily expanses are categorized by type.
+- Interactive tooltips showing more information about each catogories.
+- clean and reponsive interface.
+
+### Tech stack
+
+#### Frontend
+
+- Next.js
+- Redux Toolkit for state management
+- Raw CSS (no external libraries)
+
+#### Backend
+
+- Node.js with express.
+- MongoDB for Database.
+
+## API Reference
+
+#### Get limits
+
+```http
+  GET /api/limits
+```
+
+| Parameter | Type     | Description |
+| :-------- | :------- | :---------- |
+|           | `string` |             |
+
+#### Post limits (To setup spending limits)
+
+```http
+  POST /api/limits
+```
+
+| Parameter | Type     | Description                                                                                                      |
+| :-------- | :------- | :--------------------------------------------------------------------------------------------------------------- |
+|           | `string` | **Required**. here userId is required which is geting from localStorage or gets created in the handler function. |
+
+#### Post expenses
+
+```http
+  POST /api/expenses
+```
+
+| Parameter | Type     | Description                                                              |
+| :-------- | :------- | :----------------------------------------------------------------------- |
+|           | `string` | **Required** Here is also userId is requied which stored in the storage. |
+
+#### Delete an expense
+
+```http
+  DELETE /api/expenses/:id
+```
+
+| Parameter | Type     | Description                            |
+| :-------- | :------- | :------------------------------------- |
+| id        | `string` | **Required** Delete a expense uisng id |
+
+## Installation
+
+Clone expense tracker with npm and run it locally.
+
+```bash
+ mkdir your-folder-name
+ git clone gitURL
+ cd your-folder-name
+```
+
+Run the frontend
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the backend
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+cd backend
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### File structure.
 
-## Learn More
+![Filestructure]('./public/fileStructure.png');
 
-To learn more about Next.js, take a look at the following resources:
+## Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Insert gif or link to demo
