@@ -102,7 +102,8 @@ npm run dev
 
 ### File structure.
 
-![Filestructure]('./public/fileStructure.png');
+![Filestructure]('../public/fileStructure.png');
+<img src="./public/fileStructure.png" alt="fileStructure"/>
 
 ## Demo
 
