@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getUserId } from "../utils/storeUser"
 
-export const API_BASE_URL = process.env.NEXT_APP_API_URL || '/api';
+export const API_BASE_URL = `https://new-expense-tracker-backend.vercel.app/api`;
 
 const initialState = {
   items: [],
