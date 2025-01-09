@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getUserId } from "../utils/storeUser"
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '');  // using the fetch, get post, optioins routes url.
 console.log(API_BASE_URL);
 
 const initialState = {

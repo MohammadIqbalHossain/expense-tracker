@@ -3,72 +3,73 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { API_BASE_URL } from './expenseSlice';
 
-export const setSpendingLimits = createAsyncThunk(
-  'limits/setSpendingLimits',
-  async (limitData, { rejectWithValue }) => {
-    try {
-      console.log('Making request to:', `${API_BASE_URL}/api/limits`);
-      console.log('Environment:', process.env.NODE_ENV);
-
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        timeout: 10000, 
-        withCredentials: true
-      };
-
-      
-
-      const response = await axios.post(
-        `${API_BASE_URL}/api/limits`, 
-        limitData,
-        config
-      );
-      
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response?.data || error.message);
-    }
-  }
-);
-
 // export const setSpendingLimits = createAsyncThunk(
 //   'limits/setSpendingLimits',
 //   async (limitData, { rejectWithValue }) => {
 //     try {
-//       console.log('Current API URL:', API_BASE_URL);
-//       console.log('Current Environment:', process.env.NODE_ENV);
-      
+//       console.log('Making request to:', `${API_BASE_URL}/api/limits`);
+//       console.log('Environment:', process.env.NODE_ENV);
+
 //       const config = {
 //         headers: {
 //           'Content-Type': 'application/json',
 //         },
+//         timeout: 10000, 
 //         withCredentials: true
 //       };
 
-//       console.log('Making request with config:', config);
       
+
 //       const response = await axios.post(
-//         `${API_BASE_URL}/api/limits`,
+//         `${API_BASE_URL}/api/limits`, 
 //         limitData,
 //         config
 //       );
-
-//       console.log(response.data);
       
 //       return response.data;
 //     } catch (error) {
-//       console.error('Error details:', {
-//         message: error.message,
-//         response: error.response?.data,
-//         status: error.response?.status,
-//         headers: error.response?.headers
-//       });
 //       return rejectWithValue(error.response?.data || error.message);
 //     }
 //   }
 // );
+
+export const setSpendingLimits = createAsyncThunk(
+  'limits/setSpendingLimits',
+  async (limitData, { rejectWithValue }) => {
+    try {
+      console.log('Current API URL:', API_BASE_URL);
+      console.log('Current Environment:', process.env.NODE_ENV);
+      
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+        maxRedirects: 0,
+      };
+
+      console.log('Making request with config:', config);
+      
+      const response = await axios.post(
+        `${API_BASE_URL}/api/limits`,
+        limitData,
+        config
+      );
+
+      console.log(response.data);
+      
+      return response.data;
+    } catch (error) {
+      console.error('Error details:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        headers: error.response?.headers
+      });
+      return rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
 
 const limitSlice = createSlice({
   name: 'limits',
