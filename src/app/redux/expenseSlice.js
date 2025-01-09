@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getUserId } from "../utils/storeUser"
 
-export const API_BASE_URL = `https://new-expense-tracker-backend.vercel.app/api`;
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+console.log(API_BASE_URL);
 
 const initialState = {
   items: [],
@@ -18,9 +19,10 @@ export const fetchExpenses = createAsyncThunk(
       if (!userId) {
         throw new Error("User ID not found!");
       }
-      const response = await axios.get(`${API_BASE_URL}/expenses/?userId=${userId}`, {
+      const response = await axios.get(`${API_BASE_URL}/api/expenses/?userId=${userId}`, {
         withCredentials: true
       });
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || 'Failed to fetch expenses');
@@ -46,7 +48,7 @@ export const addExpense = createAsyncThunk(
       console.log('Sending expense data:', expenseDataWithId);
 
       const response = await axios.post(
-        `${API_BASE_URL}/expenses`, 
+        `${API_BASE_URL}/api/expenses`, 
         expenseDataWithId,
         {
           headers: {

@@ -30,7 +30,7 @@ export default function ExpenseSummary() {
     return grouped;
   };
 
-
+  console.log(expenses);
 
   const handleDelete = async (expenseId) => {
     try {
@@ -75,7 +75,7 @@ export default function ExpenseSummary() {
                   {deleteStatus === 'loading' ? 'Deleting...' : 'Delete'}
                 </Button>
                 <span>{expense.category}</span>
-                <span>${expense.amount.toFixed(2)}</span>
+                <span>${parseFloat(expense.amount?.toFixed(2))}</span>
                
               </div>
             ))}

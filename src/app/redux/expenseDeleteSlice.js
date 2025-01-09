@@ -14,7 +14,7 @@ export const deleteExpense = createAsyncThunk(
   async (expenseId) => {
 
     try {
-      await axios.delete(`${API_BASE_URL}/expenses/${expenseId}`);
+      await axios.delete(`${API_BASE_URL}/api/expenses/${expenseId}`);
       return expenseId;
     } catch (error) {
       throw error.response?.data?.message || 'Failed to delete expense';
