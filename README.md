@@ -82,22 +82,35 @@ Clone expense tracker with npm and run it locally.
 
 ```bash
  mkdir your-folder-name
- git clone gitURL
- cd your-folder-name
+
+ git clone https://github.com/MohammadIqbalHossain/expense-tracker.git
+
 ```
 
 Run the frontend
 
 ```bash
+cd your-folder-name
+
 npm run dev
 
+```
+
+Clone backend locally and run it.
+
+```bash
+mkdir your-backend-project-name
+
+git clone https://github.com/MohammadIqbalHossain/backend-expense-tracker.git
 ```
 
 Run the backend
 
 ```bash
-cd backend
+cd your-backend-project-name
+
 npm run dev
+
 ```
 
 ### File structure.
@@ -106,4 +119,16 @@ npm run dev
 
 ## Demo
 
-Insert gif or link to demo
+Click the link see the live site.
+
+https://expense-tracker-beta-kohl.vercel.app/
+
+## Deployment
+
+If you've contributed or made some changes you can deploy it in vercel. install vercel CLI globally in you machine. open you terminal, and run:
+
+```bash
+vercel
+```
+
+Thank you!
